@@ -305,8 +305,9 @@ makeZero x =
   больших чисел.
 -}
 factorial :: Integer -> Integer
-factorial n = if n == 0 then 1
-  else factorial ((n - 1) * n)
+factorial n = if n == 0 
+  then 1
+  else factorial (n - 1) * n
 
 {-
   На вход приходит целое число. Необходимо вернуть количество цифр:
@@ -315,7 +316,13 @@ factorial n = if n == 0 then 1
     - если n = 144545, то 6
 -}
 digitsCount :: Int -> Int
-digitsCount n = if n == 0 then 0 else 1 + digitsCount (div n 10)
+digitsCount n = digitsCount' (abs n)
+
+digitsCount' :: Int -> Int
+digitsCount' n = if n < 10 
+  then 1
+  else 1 + digitsCount (div n 10)
+
 
 -- </Задачи для самостоятельного решения>
 
