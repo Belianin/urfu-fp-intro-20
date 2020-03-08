@@ -247,12 +247,16 @@ someArithmeticCalculations =
     - если n < 0, то "negative"
 -}
 tellSign :: Int -> String
+<<<<<<< HEAD
+tellSign n = if n == 0 then "zero" else (if n > 0 then "positive" else "negative")
+=======
 tellSign n =
   if n == 0
     then "zero"
     else if n > 0
       then "positive"
       else "negative"
+>>>>>>> 67b8ebf415394e11d75a0273107feb8eb0f0a2cd
 
 {-
   `howManyDigits` возвращает количество цифр целого числа `n`:
@@ -261,12 +265,18 @@ tellSign n =
     - если n >= 100, то "three-digits or more"
 -}
 howManyDigits :: Int -> String
+<<<<<<< HEAD
+howManyDigits n = if a >= 100 then "three-digit or more" else (if a >= 10 then "two-digit" else "single")
+  where
+    a = abs n
+=======
 howManyDigits n =
   if abs n < 10
     then "single"
     else if (abs n >= 10) && (abs n < 100)
       then "two-digits"
       else "three-digits or more"
+>>>>>>> 67b8ebf415394e11d75a0273107feb8eb0f0a2cd
 
 {-
   `describeNumber` возвращает полное описание целого числа, используя
@@ -315,8 +325,14 @@ makeZero x =
   больших чисел.
 -}
 factorial :: Integer -> Integer
+<<<<<<< HEAD
+factorial n = if n == 0 
+  then 1
+  else factorial (n - 1) * n
+=======
 factorial n = if n == 0 then 1 else
   n * factorial (n - 1)
+>>>>>>> 67b8ebf415394e11d75a0273107feb8eb0f0a2cd
 
 {-
   На вход приходит целое число. Необходимо вернуть количество цифр:
@@ -325,8 +341,18 @@ factorial n = if n == 0 then 1 else
     - если n = 144545, то 6
 -}
 digitsCount :: Int -> Int
+<<<<<<< HEAD
+digitsCount n = digitsCount' (abs n)
+
+digitsCount' :: Int -> Int
+digitsCount' n = if n < 10 
+  then 1
+  else 1 + digitsCount (div n 10)
+
+=======
 digitsCount n = if n == 0 then 1 else
   if abs n > 0 && abs n < 10 then 1 else 1 + digitsCount (n `div` 10)
+>>>>>>> 67b8ebf415394e11d75a0273107feb8eb0f0a2cd
 
 -- </Задачи для самостоятельного решения>
 
